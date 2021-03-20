@@ -50,4 +50,5 @@ if(err){
 
 }
 
+
 module.exports = mongoose.model('user', UserSchema);
