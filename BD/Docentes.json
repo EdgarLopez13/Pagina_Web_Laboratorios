@@ -1,0 +1,13 @@
+[{
+  "_id": {
+    "$oid": "604c5b546166743d345d180a"
+  },
+  "nombres": "Joel",
+  "apellidos": "Martinez",
+  "matricula": 20211820,
+  "carrera": "TI",
+  "correo": "joelmtnz@gmail.com",
+  "telefono": 6310002040,
+  "turno": "Matutino",
+  "password": "utn"
+}]

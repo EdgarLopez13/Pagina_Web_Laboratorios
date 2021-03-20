@@ -1,0 +1,17 @@
+[{
+  "_id": {
+    "$oid": "604c63786166743d345d180c"
+  },
+  "matricula_docente": 20211820,
+  "nombre_docente": "Joel",
+  "apellido_docente": "Martinez",
+  "materia": "Programacion",
+  "fecha_solictud": {
+    "$date": "2021-03-16T07:00:00Z"
+  },
+  "dia_apartado": {
+    "$date": "2021-03-12T07:00:00Z"
+  },
+  "turno": "matutino",
+  "id_lab": "604c5ca86166743d345d180b"
+}]
