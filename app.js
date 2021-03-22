@@ -2,16 +2,13 @@ const express    = require('express');
 const path       = require('path');
 const bodyParser = require('body-parser');
 const app        = express();
-const user       = require('./public/docentes');
+const User       = require('./public/docentes');
 const bcrypt     = require('bcrypt');
 const mongoose   = require('mongoose');
 
 app.use(bodyParser.json());
-
 app.use(bodyParser.urlencoded({extended: false}));
-
 app.use(express.static(path.join(__dirname,'public')));
-
 
 const mongo_uri = 'mongodb://localhost/laboratorio_utn';
 
@@ -27,9 +24,9 @@ if (err) {
 
 app.post('/registro',(req,res)=>{
 
-/*const {nombres,password,correo,apellidos,matricula,carrera,telefono,turno} = req.body;
+const {nombres,apellidos,matricula,carrera,correo,telefono,turno,password} = req.body;
 
-const user = new user({correo,password});
+const user = new User({nombres,apellidos,matricula,carrera,correo,telefono,turno,password});
    
 user.save(err =>{
 if (err) {
@@ -38,7 +35,7 @@ if (err) {
     res.status(200).send('USUARIO REGISTRADO');
 }
 
-});*/
+});
 
 });
 
