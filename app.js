@@ -43,7 +43,7 @@ app.post('/autenticacion', (req, res) =>{
 
     const {correo, password} = req.body;
 
-    user.findOne({correo}, (err, user) =>{
+    User.findOne({correo}, (err, user) =>{
 
         if (err) {
             res.status(500).send('ERROR AL AUNTETICARSE EL CORREO');
