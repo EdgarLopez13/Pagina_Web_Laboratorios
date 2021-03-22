@@ -7,10 +7,14 @@ const bcrypt     = require('bcrypt');
 const mongoose   = require('mongoose');
 
 app.use(bodyParser.json());
+
 app.use(bodyParser.urlencoded({extended: false}));
+
 app.use(express.static(path.join(__dirname,'public')));
 
+
 const mongo_uri = 'mongodb://localhost/laboratorio_utn';
+
 
 mongoose.connect(mongo_uri,function(err){
 if (err) {
