@@ -10,7 +10,7 @@
 <body>
 <!-- partial:index.partial.html -->
 <!-- multistep form -->
-<form id="msform">
+<form id="msform" action="Solicitud_laboratorio.php" method="POST">
   <!-- progressbar -->
   <ul id="progressbar">
     <li class="active">Datos del docente</li>
@@ -19,30 +19,58 @@
   </ul>
   <!-- fieldsets -->
   <fieldset>
-    <h2 class="fs-title">Datos del docente</h2>
-    <h3 class="fs-subtitle">Ingrese sus datos</h3>
-    <input type="text" name="email" placeholder="Matricula" />
-    <input type="password" name="pass" placeholder="Nombre" />
-    <input type="password" name="cpass" placeholder="Apellidos" />
-    <input type="button" name="next" class="next action-button" value="Siguiente" />
-  </fieldset>
-  <fieldset>
-    <h2 class="fs-title">Seleccione su turno</h2>
-    <h3 class="fs-subtitle">Ingrese sus datos</h3>
-    <input type="text" name="twitter" placeholder="Materia" />
-    <input type="text" name="facebook" placeholder="Turno" />
-    <input type="button" name="previous" class="previous action-button" value="Anterior" />
-    <input type="button" name="next" class="next action-button" value="Siguiente" />
-  </fieldset>
-  <fieldset>
-    <h2 class="fs-title">Seleccione fecha</h2>
-    <h3 class="fs-subtitle">Ingrese sus datos</h3>
-    <label>Seleccione fecha de solicitud</label>
-    <input type="date" name="fname" placeholder="Seleccione la fecha" />
-    <label>Seleccione fecha de apartado</label>
-    <input type="date" name="lname" placeholder="Last Name" />
-    <input type="button" name="previous" class="previous action-button" value="Anterior" />
-    <input type="submit" name="submit" class="submit action-button" value="Solicitar" />
+    <h2 class="fs-title">SOLICITUD DE LABORATORIO <br></h2>
+    <h3 class="fs-subtitle">FAVOR DE RELLENAR LOS CAMPOS <br><br></h3>
+    <input type="text" id="matricula" name="matricula" value="" placeholder="Matricula" />
+    <input type="text" id="nombres" name="nombres" value="" placeholder="Nombre" />
+    <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" value=""/>
+    <input type="button" name="next" class="next action-button" value="Siguiente" /> <br>
+    </fieldset>
+    <fieldset >
+          <h2 class="fs-title">DATOS DEL LABORATORIO <br></h2>
+    <h3 class="fs-subtitle">INGRESE LOS DATOS <br><br></h3>
+
+   <select  id="materia" name="materia" class="select">
+  <option  disabled selected="">Seleccione La Materia</option>
+  <option>SW</option>
+  <option>AWM</option>
+  <option>BD</option>
+  <option>EOyE</option>
+  <option>IOT II</option>
+</select>
+<select  id="laboratorio" name="laboratorio" class="select">
+  <option  disabled selected="">Seleccione El Laboratorio</option>
+  <option>TI01</option>
+  <option>TI02</option>
+  <option>TI03</option>
+  <option>TI04</option>
+</select>
+    <select  id="turno" name="turno" class="select">
+  <option  disabled selected="">Seleccione El Turno</option>
+  <option>MATUTINO</option>
+  <option>VESPERTINO</option>
+
+</select>
+        <input type="button" name="previous" class="previous action-button" value="Anterior" />
+    <input type="button" name="Solicitar" class="next action-button" value="Siguiente" />
+    </fieldset>
+    <fieldset>
+          <h2 class="fs-title">SELECIONE LA FECHA A SOLICITAR <br></h2>
+    <h3 class="fs-subtitle">INGESE LOS DATOS <br><br></h3>
+
+    <select  id="dia" name="dia" class="select">
+  <option  disabled selected="">Seleccione El Dia</option>
+  <option>LUNES</option>
+  <option>MARTES</option>
+  <option>MIERCOLES</option>
+  <option>JUEVES</option>
+  <option>VIERNES</option>
+</select>
+    <input type="date" name="fecha" id="fecha" placeholder="Fecha" />
+    <input type="time" name="hora" id="hora" placeholder="Hora" />
+  <input type="button" name="previous" class="previous action-button" value="Anterior" />
+    <input type="submit" id="Solicitar" name="Solicitar" class="action-button" value="Solicitar" />
+        <input type="submit" id="Editar" name="Editar" class="action-button" value="Editar" />
   </fieldset>
 </form>
 <!-- partial -->
