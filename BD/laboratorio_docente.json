@@ -2,16 +2,38 @@
   "_id": {
     "$oid": "604c63786166743d345d180c"
   },
-  "matricula_docente": 20211820,
+  "matricula_docente": "20211820",
   "nombre_docente": "Joel",
   "apellido_docente": "Martinez",
   "materia": "Programacion",
-  "fecha_solictud": {
-    "$date": "2021-03-16T07:00:00Z"
-  },
-  "dia_apartado": {
-    "$date": "2021-03-12T07:00:00Z"
-  },
+  "dia_apartado": "Fri Mar 12 2021 00:00:00 GMT-0700 (hora estándar del Pacífico de México)",
   "turno": "matutino",
-  "id_lab": "604c5ca86166743d345d180b"
+  "id_lab": "604c5ca86166743d345d180b",
+  "hora_solicitada": "Tue Mar 16 2021 00:00:00 GMT-0700 (hora estándar del Pacífico de México)"
+},{
+  "_id": {
+    "$oid": "60724486d030672fcce15a73"
+  },
+  "nombres": "Edgar",
+  "apellidos": "Lopez",
+  "matricula": "43222",
+  "materia": "BD",
+  "dia_apartado": "2021-04-12",
+  "turno": "MATUTINO",
+  "id_lab": "TI04",
+  "hora_solicitada": "11:50",
+  "dia": "0"
+},{
+  "_id": {
+    "$oid": "607245e26cd4012a68238604"
+  },
+  "nombres": "Edgar",
+  "apellidos": "Lopez",
+  "matricula": "123433",
+  "materia": "SW",
+  "dia_apartado": "2021-04-12",
+  "turno": "VESPERTINO",
+  "id_lab": "TI04",
+  "hora_solicitada": "13:30",
+  "dia": "LUNES"
 }]
