@@ -3,14 +3,21 @@ const path       = require('path');
 const bodyParser = require('body-parser');
 const app        = express();
 const User       = require('./public/docentes');
+const Lab       = require('./public/lab');
 const bcrypt     = require('bcrypt');
 const mongoose   = require('mongoose');
+let alert        = require('alert');
+const Materia    = require('./public/Materia');
+const fetch      = require('node-fetch');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname,'public')));
+app.set('view engine','ejs');
 
 const mongo_uri = 'mongodb://localhost/laboratorio_utn';
+
+
 
 
 mongoose.connect(mongo_uri,function(err){
@@ -30,14 +37,39 @@ const user = new User({nombres,apellidos,matricula,carrera,correo,telefono,turno
    
 user.save(err =>{
 if (err) {
-    res.status(500).send('ERROR AL REGISTRARSE');
+    alert('ERROR AL REGISTRARSE');
 }else{
-    res.status(200).send('USUARIO REGISTRADO');
+    res.redirect("login.html");
+    alert('USUARIO REGISTRADO');
 }
 
 });
 
 });
+
+app.post('/laboratorio',(req,res)=>{
+
+    const {nombres,apellidos,matricula,materia,dia_apartado,turno,id_lab,hora_solicitada,dia} = req.body;
+    
+    const lab = new Lab({nombres,apellidos,matricula,materia,dia_apartado,turno,id_lab,hora_solicitada,dia});
+       
+    lab.save(err =>{
+    if (err) {
+        res.redirect("login.html");
+        alert('ERROR AL REGISTRAR LA SOLICITUD');
+        
+    }else{
+        res.redirect("courses.html");
+        alert('SOLICITUD REGISTRADA');
+      
+    }
+    
+    });
+    
+    });
+    
+
+    
 
 app.post('/autenticacion', (req, res) =>{
 
@@ -46,24 +78,54 @@ app.post('/autenticacion', (req, res) =>{
     User.findOne({correo}, (err, user) =>{
 
         if (err) {
-            res.status(500).send('ERROR AL AUNTETICARSE EL CORREO');
+            res.redirect("login.html");
+            alert('ERROR AL AUNTETICARSE EL CORREO');
+            
 }else if(!user){
-    res.status(200).send('EL USUARIO NO EXISTE');
+    res.redirect("login.html");
+   alert('EL USUARIO NO EXISTE');
+   
 }else{
 
     user.PasswordVerification(password, (err, result) =>{
         if (err) {
-            res.status(500).send('ERROR AL AUNTETICARSE LA CONTRASEÑA');
+            res.redirect("login.html");
+            alert('ERROR AL AUNTETICARSE LA CONTRASEÑA');
+          
         }else if (result) {
-            res.status(200).send('USUARIO AUTENTICADO CORRECTAMENTE');  
+            alert("Usuario Autenticado Correctamente"); 
+            res.redirect("Formulario_laboratorio.html");
+          
         }else{
-            res.status(500).send('CORREO Y/O CONTRASEÑA INCORRECTAS');
+            res.redirect("login.html");
+            alert('CORREO Y/O CONTRASEÑA INCORRECTAS');
+           
         }
     });
 }
     });
 
 });
+
+
+app.get('/calendario', (req, res) =>{
+    
+   Materia.find({
+       
+   }).then(doc =>{res.json({doc})})
+
+
+   });
+
+   app.post('/solicitud', (req, res) =>{
+    const {correo, password} = req.body;
+    
+    User.find({correo:correo,password:password
+        
+    }).then(doc =>{res.json({doc})})
+    
+ 
+    });
 
 
 
