@@ -9,7 +9,6 @@ const mongoose   = require('mongoose');
 let alert        = require('alert');
 const Materia    = require('./public/Materia');
 const fetch      = require('node-fetch');
-const { timeEnd } = require('console');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
